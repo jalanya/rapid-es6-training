@@ -12,8 +12,29 @@ function doAsync() {
   return p;
 }
 
+/*
 doAsync().then(function(value) {
   console.log('Ok!');
 },function(reason) {
+  console.log('Nope!');
+});
+*/
+
+let p1 = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    resolve();
+  }, 3000);
+});
+
+let p2 = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    console.log('5 seconds');
+    resolve();
+  }, 5000);
+});
+
+Promise.all([p1, p2]).then(function(value) {
+  console.log('Ok');
+}, function(reason) {
   console.log('Nope!');
 });
