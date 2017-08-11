@@ -11,7 +11,7 @@ function doAsync() {
 
 doAsync().then(function(value) {
   console.log('Fulfilled! ' + value);
-},
-function(reason) {
-  console.log('Rejected! ' + reason);
+  return 'For sure';
+}).then(function(value) {
+  console.log('Really! ' + value);
 });
