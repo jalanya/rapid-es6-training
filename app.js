@@ -2,16 +2,16 @@ function doAsync() {
   let p = new Promise(function (resolve, reject) {
     console.log('in promise code');
     setTimeout(function() {
-      console.log('resolving...');
-      resolve();
+      console.log('rejecting...');
+      reject('Database Error');
     }, 2000);
   });
   return p;
 }
 
-doAsync().then(function() {
-  console.log('Fulfilled!');
+doAsync().then(function(value) {
+  console.log('Fulfilled! ' + value);
 },
-function() {
-  console.log('Rejected!');
+function(reason) {
+  console.log('Rejected! ' + reason);
 });
