@@ -9,4 +9,9 @@ function doAsync() {
   return p;
 }
 
-let promise = doAsync();
+doAsync().then(function() {
+  console.log('Fulfilled!');
+},
+function() {
+  console.log('Rejected!');
+});
