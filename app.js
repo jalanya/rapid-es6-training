@@ -23,7 +23,7 @@ doAsync().then(function(value) {
 let p1 = new Promise(function(resolve, reject) {
   setTimeout(function() {
     console.log('3 seconds');
-    resolve('Aaa');
+    reject('Aaa');
   }, 3000);
 });
 
