@@ -23,19 +23,19 @@ doAsync().then(function(value) {
 let p1 = new Promise(function(resolve, reject) {
   setTimeout(function() {
     console.log('3 seconds');
-    reject('Aaa');
+    resolve('Aaa');
   }, 3000);
 });
 
 let p2 = new Promise(function(resolve, reject) {
   setTimeout(function() {
     console.log('5 seconds');
-    reject('Bbb');
+    resolve('Bbb');
   }, 5000);
 });
 
-Promise.all([p1, p2]).then(function(value) {
-  console.log('Ok');
+Promise.race([p1, p2]).then(function(value) {
+  console.log('Ok ' + value);
 }, function(reason) {
   console.log('Nope!..', reason);
 });
