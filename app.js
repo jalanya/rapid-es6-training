@@ -9,6 +9,11 @@ function doAsync() {
   return p;
 }
 
-doAsync().catch(function(reason) {
+doAsync().then(function(value) {
+  console.log('Fulfilled!');
+},function(reason) {
+  console.log('Rejected! ' + reason);
+  return Promise.reject('Buu!!..' + reason);
+}).catch(function(reason) {
   console.log('Error: ' + reason);
 });
