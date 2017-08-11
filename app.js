@@ -22,19 +22,20 @@ doAsync().then(function(value) {
 
 let p1 = new Promise(function(resolve, reject) {
   setTimeout(function() {
-    resolve();
-  }, 1000);
+    console.log('3 seconds');
+    reject('Aaa');
+  }, 3000);
 });
 
 let p2 = new Promise(function(resolve, reject) {
   setTimeout(function() {
-    console.log('2 seconds');
-    reject();
+    console.log('5 seconds');
+    reject('Bbb');
   }, 5000);
 });
 
 Promise.all([p1, p2]).then(function(value) {
   console.log('Ok');
 }, function(reason) {
-  console.log('Nope!');
+  console.log('Nope!..', reason);
 });
