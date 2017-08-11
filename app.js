@@ -2,8 +2,8 @@ function doAsync() {
   let p = new Promise(function (resolve, reject) {
     console.log('in promise code');
     setTimeout(function() {
-      console.log('rejecting...');
-      reject('Database Error');
+      console.log('resolving...');
+      resolve('OK');
     }, 2000);
   });
   return p;
