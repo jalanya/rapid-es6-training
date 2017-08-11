@@ -22,15 +22,15 @@ doAsync().then(function(value) {
 
 let p1 = new Promise(function(resolve, reject) {
   setTimeout(function() {
-    console.log('3 seconds');
-    reject('Aaa');
-  }, 3000);
+    console.log('4 seconds');
+    resolve('Aaa');
+  }, 4000);
 });
 
 let p2 = new Promise(function(resolve, reject) {
   setTimeout(function() {
     console.log('5 seconds');
-    resolve('Bbb');
+    reject('Bbb');
   }, 5000);
 });
 
